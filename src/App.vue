@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <div>老徐最棒了</div>
+    <NarBar/>
   </div>
 </template>
 
 <script>
-
+import NarBar from "./components/common/NarBar";
 export default {
   name: 'App',
   components: {
+    NarBar
   }
 }
 </script>
 
 <style>
-
+  @import "./assets/css/base.css";
 </style>
