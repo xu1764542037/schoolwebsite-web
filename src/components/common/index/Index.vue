@@ -1,5 +1,5 @@
 <template>
-  <div id="index">
+  <div id="index" @mousedown="closeSel">
     <nav-bar>
       <div slot="navLogo">
         <img id="Index-NavLogo-Img" src="@/assets/img/index/collegeLogo.png"/>
@@ -128,7 +128,29 @@ export default {
   methods: {
     changeSearchColor() {
       this.isShowSearch = !this.isShowSearch
+    },
+    closeSel(event){
+      const Profile = document.getElementById("Index-NavMenu-ProfileBox");
+      const CollegeInfo = document.getElementById("Index-NavMenu-CollegeInfoBox");
+      const Study = document.getElementById("Index-NavMenu-StudyBox");
+
+      if(Profile ){
+        if(!Profile.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
+          this.isProfileShow = false
+        }
+      }
+      if(CollegeInfo ){
+        if(!CollegeInfo.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
+          this.isCollegeInfoShow = false
+        }
+      }
+      if(Study ){
+        if(!Study.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
+          this.isStudyShow = false
+        }
+      }
     }
+
   },
   mounted() {
     document.addEventListener('click',e => {
@@ -147,8 +169,6 @@ export default {
 #index {
   z-index: 1;
   position: fixed;
-  height: 20%;
-  width: 100%;
   border: 0;
 
 }
