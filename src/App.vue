@@ -1,21 +1,38 @@
 <template>
   <div id="app">
-    <NarBar/>
+    <index></index>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NarBar from "./components/common/NavBar/NarBar";
+import index from "@/components/common/index/Index"
 
 export default {
   name: 'App',
   components: {
-    NarBar
+    index
   }
 }
 </script>
 
 <style>
-  @import "./assets/css/base.css";
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+
+}
+body{
+  /*font-family: PingFang-SC-Regular,Helvetica,"Microsoft Yahei","微软雅黑";*/
+  font-family: PingFangSC-Regular!important;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 </style>

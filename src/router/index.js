@@ -1,6 +1,10 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
 
+
+//首页
+const Index =() => import("@/components/common/index/Index.vue")
+
 //404页面
 const Error =() => import("@/components/common/404/error")
 
@@ -9,6 +13,19 @@ Vue.use(VueRouter)
 
 
 const routes = [
+  {
+    path: '',
+    redirect: '/index'
+  },
+  // {
+  //   path: '/login',
+  //   component: Login
+  // },
+  // {
+  //   path: '/index',
+  //   redirect: "/index",
+  //   component: Index
+  // },
   // {
   //   path: '*',
   //   redirect: "/404"

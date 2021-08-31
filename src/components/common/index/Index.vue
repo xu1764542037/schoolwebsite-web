@@ -1,0 +1,263 @@
+<template>
+  <div id="index">
+    <nav-bar>
+      <div slot="navLogo">
+        <img id="Index-NavLogo-Img" src="@/assets/img/index/collegeLogo.png"/>
+        <img id="Index-NavLogo-Img-Font" src="@/assets/img/index/collegeFont.png"/>
+        <img id="Index-NavLogo-Img-FontEnglish" src="@/assets/img/index/collegeFontEnglish.png"/>
+      </div>
+      <div slot="navLink">
+        <nav-bar-link>
+          <nav-bar-link-item>师生办事大厅</nav-bar-link-item>
+          <nav-bar-link-item>领导信箱</nav-bar-link-item>
+          <nav-bar-link-item>纪委信箱</nav-bar-link-item>
+          <nav-bar-link-item>信息公开</nav-bar-link-item>
+          <nav-bar-link-item>师德师风</nav-bar-link-item>
+          <nav-bar-link-item>图书馆</nav-bar-link-item>
+          <nav-bar-link-item>|</nav-bar-link-item>
+          <nav-bar-link-item>登录</nav-bar-link-item>
+          <nav-bar-link-item>
+            <img class="Index-NavBarLinkItem-Img" @mouseover="changeSearchColor" v-show="!isShowSearch" src="@/assets/img/index/greySearch.svg" alt="站内搜索">
+            <img class="Index-NavBarLinkItem-Img" @mouseleave="changeSearchColor" v-show="isShowSearch" src="@/assets/img/index/blackSearch.svg" alt="站内搜索">
+          </nav-bar-link-item>
+        </nav-bar-link>
+      </div>
+      <div slot="navMenu">
+        <nav-menu>
+          <nav-menu-item>首页</nav-menu-item>
+          <nav-menu-item>
+            <div @click="isProfileShow = !isProfileShow">学院概况 ◆</div>
+          </nav-menu-item>
+          <el-collapse-transition>
+            <div v-show="isProfileShow" id="Index-NavMenu-ProfileBox">
+              <div class="Index-NavMenu-Profile">学院简介</div>
+              <div class="Index-NavMenu-Profile">组织机构</div>
+              <div class="Index-NavMenu-Profile">现任领导</div>
+              <div class="Index-NavMenu-Profile">现代映像</div>
+              <div class="Index-NavMenu-Profile">校园地图</div>
+              <div class="Index-NavMenu-Profile">校史校情</div>
+            </div>
+          </el-collapse-transition>
+          <nav-menu-item>
+            <div @click="isCollegeInfoShow = !isCollegeInfoShow">院系设置 ◆</div>
+          </nav-menu-item>
+          <el-collapse-transition>
+            <div v-show="isCollegeInfoShow" id="Index-NavMenu-CollegeInfoBox">
+              <div class="Index-NavMenu-CollegeInfo">信息工程学院</div>
+              <div class="Index-NavMenu-CollegeInfo">商务学院</div>
+              <div class="Index-NavMenu-CollegeInfo">智能制造学院</div>
+              <div class="Index-NavMenu-CollegeInfo">建筑工程学院</div>
+              <div class="Index-NavMenu-CollegeInfo">设计学院</div>
+              <div class="Index-NavMenu-CollegeInfo">旅游与航空学院</div>
+              <div class="Index-NavMenu-CollegeInfo">环境与能源学院</div>
+              <div class="Index-NavMenu-CollegeInfo">军事体育教学部</div>
+              <div class="Index-NavMenu-CollegeInfo">马克思主义学院</div>
+              <div class="Index-NavMenu-CollegeInfo">继续教育学院</div>
+              <div class="Index-NavMenu-CollegeInfo">本科教育学院</div>
+            </div>
+          </el-collapse-transition>
+          <nav-menu-item>
+            <div @click="isStudyShow = !isStudyShow">教育教学 ◆</div>
+          </nav-menu-item>
+          <el-collapse-transition>
+            <div v-show="isStudyShow" id="Index-NavMenu-StudyBox">
+              <div class="Index-NavMenu-Study">高等职业教育</div>
+              <div class="Index-NavMenu-Study">继续教育</div>
+            </div>
+          </el-collapse-transition>
+          <nav-menu-item>科学研究</nav-menu-item>
+          <nav-menu-item>招生就业</nav-menu-item>
+          <nav-menu-item>合作交流</nav-menu-item>
+          <nav-menu-item>走进学院</nav-menu-item>
+        </nav-menu>
+      </div>
+    </nav-bar>
+  </div>
+</template>
+
+<script>
+import NavBar from "@/components/common/navbar/NavBar";
+import NavBarLink from "@/components/common/navbar/NavBarLink";
+import NavBarLinkItem from "@/components/common/navbar/NavBarLinkItem";
+import NavMenu from "@/components/common/navbar/NavMenu";
+import NavMenuItem from "@/components/common/navbar/NavMenuItem";
+
+export default {
+  name: "Index",
+  watch: {
+    isProfileShow: {
+      handler() {
+        if (this.isProfileShow === true) {
+          this.isCollegeInfoShow = false
+          this.isStudyShow = false
+        }
+      }
+    },
+    isCollegeInfoShow: {
+      handler() {
+        if (this.isCollegeInfoShow === true) {
+          this.isProfileShow = false
+          this.isStudyShow = false
+        }
+      }
+    },
+    isStudyShow: {
+      handler() {
+        if (this.isStudyShow === true) {
+          this.isCollegeInfoShow = false
+          this.isProfileShow = false
+        }
+      }
+    }
+  },
+  data() {
+    return {
+      isShowSearch: false,
+      isProfileShow: false,
+      isCollegeInfoShow: false,
+      isStudyShow: false
+    }
+  },
+  components: {
+    NavBar,
+    NavBarLink,
+    NavBarLinkItem,
+    NavMenu,
+    NavMenuItem
+  },
+  methods: {
+    changeSearchColor() {
+      this.isShowSearch = !this.isShowSearch
+    }
+  },
+  mounted() {
+    document.addEventListener('click',e => {
+      if(!this.$el.contains(e.target)){
+        this.isShowSearch = false//点击其他区域关闭
+        this.isProfileShow = false
+        this.isCollegeInfoShow = false
+        this.isStudyShow = false
+      }
+    })
+  },
+}
+</script>
+
+<style scoped>
+#index {
+  z-index: 1;
+  position: fixed;
+  height: 20%;
+  width: 100%;
+  border: 0;
+
+}
+
+#Index-NavLogo-Img {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 50px;
+  height: 100px;
+  width: 100px;
+}
+
+#Index-NavLogo-Img-Font {
+  position: absolute;
+  height: 60px;
+  width: 220px;
+  margin-top: 35px;
+  margin-left: 170px;
+}
+
+#Index-NavLogo-Img-FontEnglish {
+  position: absolute;
+  height: 30px;
+  width: 220px;
+  margin-top: 85px;
+  margin-left: 170px;
+}
+
+.Index-NavBarLinkItem-Img {
+  height: 20px;
+  width: 25px;
+  margin-top: -3px;
+  -webkit-transition: 1s all;
+}
+
+#Index-NavMenu-ProfileBox {
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 100px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #999999;
+  border-top: 5px solid #BF4DBF;
+}
+
+.Index-NavMenu-Profile {
+  position: relative;
+  height: 50px;
+  width: 200px;
+  background: rgba(255,255,255,.9);
+  text-align: center;
+  line-height: 50px;
+  -webkit-transition: 1s all;
+
+}
+
+.Index-NavMenu-Profile:hover {
+  background: gainsboro;
+}
+
+
+#Index-NavMenu-CollegeInfoBox {
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 260px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #999999;
+  border-top: 5px solid #BF4DBF;
+}
+
+.Index-NavMenu-CollegeInfo {
+  position: relative;
+  height: 50px;
+  width: 200px;
+  background: rgba(255,255,255,.9);
+  text-align: center;
+  line-height: 50px;
+  -webkit-transition: 1s all;
+
+}
+
+.Index-NavMenu-CollegeInfo:hover {
+  background: gainsboro;
+}
+
+
+#Index-NavMenu-StudyBox {
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 420px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #999999;
+  border-top: 5px solid #BF4DBF;
+}
+
+.Index-NavMenu-Study {
+  position: relative;
+  height: 50px;
+  width: 200px;
+  background: rgba(255,255,255,.9);
+  text-align: center;
+  line-height: 50px;
+  -webkit-transition: 1s all;
+
+}
+
+.Index-NavMenu-Study:hover {
+  background: gainsboro;
+}
+</style>
