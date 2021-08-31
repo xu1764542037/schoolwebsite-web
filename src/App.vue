@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <NarBar/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NarBar from "./components/common/NarBar";
+import NarBar from "./components/common/NavBar/NarBar";
+
 export default {
   name: 'App',
   components: {
