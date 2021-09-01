@@ -133,7 +133,6 @@ export default {
     NavBarLinkItem,
     NavMenu,
     NavMenuItem,
-
   },
   methods: {
     changeSearchColor() {

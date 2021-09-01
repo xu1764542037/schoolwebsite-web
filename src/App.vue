@@ -2,21 +2,22 @@
   <div id="app">
     <index></index>
     <router-view></router-view>
+    <BackToTop/>
   </div>
 </template>
 
 <script>
 import index from "@/components/common/index/Index"
-
 export default {
   name: 'App',
   components: {
-    index
+    index,
   }
 }
 </script>
 
 <style>
+@import "./assets/css/base.css";
 *{
   margin: 0;
   padding: 0;
@@ -52,6 +53,5 @@ body::-webkit-scrollbar-track {
   border-radius: 0;
   background: rgba(0,0,0,0.1);
 }
-
 
 </style>
