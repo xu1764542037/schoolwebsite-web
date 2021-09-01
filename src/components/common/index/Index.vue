@@ -90,7 +90,8 @@ export default {
         if (this.isProfileShow === true) {
           this.isCollegeInfoShow = false
           this.isStudyShow = false
-          this.ProfileNum = 0
+          this.CollegeInfoNum = 0
+          this.StudyNum = 0
         }
       }
     },
@@ -99,7 +100,8 @@ export default {
         if (this.isCollegeInfoShow === true) {
           this.isProfileShow = false
           this.isStudyShow = false
-          this.CollegeInfoNum = 0
+          this.ProfileNum = 0
+          this.StudyNum = 0
         }
       }
     },
@@ -108,7 +110,8 @@ export default {
         if (this.isStudyShow === true) {
           this.isCollegeInfoShow = false
           this.isProfileShow = false
-          this.StudyNum = 0
+          this.ProfileNum = 0
+          this.CollegeInfoNum = 0
         }
       }
     }
