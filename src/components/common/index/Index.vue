@@ -22,7 +22,7 @@
           </nav-bar-link-item>
         </nav-bar-link>
       </div>
-      <div slot="navMenu">
+      <div slot="navMenu" id="navMenu">
         <nav-menu>
           <nav-menu-item>首页</nav-menu-item>
           <nav-menu-item>
@@ -167,25 +167,18 @@ export default {
       }
     },
     closeSel(event){
-      const Profile = document.getElementById("Index-NavMenu-ProfileBox");
-      const CollegeInfo = document.getElementById("Index-NavMenu-CollegeInfoBox");
-      const Study = document.getElementById("Index-NavMenu-StudyBox");
-
-      if(Profile ){
-        if(!Profile.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
+      const navMenu = document.getElementById("navMenu");
+      if(navMenu){
+        if(!navMenu.contains(event.target)){  //点击到了id为navMenu以外的区域，隐藏下拉框
           this.isProfileShow = false
-        }
-      }
-      if(CollegeInfo ){
-        if(!CollegeInfo.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
           this.isCollegeInfoShow = false
-        }
-      }
-      if(Study ){
-        if(!Study.contains(event.target)){      //点击到了id为sellineName以外的区域，隐藏下拉框
           this.isStudyShow = false
+          this.ProfileNum = 0
+          this.CollegeInfoNum = 0
+          this.StudyNum = 0
         }
       }
+
     }
 
   },
@@ -196,6 +189,9 @@ export default {
         this.isProfileShow = false
         this.isCollegeInfoShow = false
         this.isStudyShow = false
+        this.ProfileNum = 0
+        this.CollegeInfoNum = 0
+        this.StudyNum = 0
       }
     })
   },
