@@ -73,6 +73,7 @@
       </div>
     </nav-bar>
   </div>
+
 </template>
 
 <script>
@@ -81,7 +82,6 @@ import NavBarLink from "@/components/common/navbar/NavBarLink";
 import NavBarLinkItem from "@/components/common/navbar/NavBarLinkItem";
 import NavMenu from "@/components/common/navbar/NavMenu";
 import NavMenuItem from "@/components/common/navbar/NavMenuItem";
-
 export default {
   name: "Index",
   watch: {
@@ -123,7 +123,8 @@ export default {
     NavBarLink,
     NavBarLinkItem,
     NavMenu,
-    NavMenuItem
+    NavMenuItem,
+
   },
   methods: {
     changeSearchColor() {

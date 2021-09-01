@@ -3,7 +3,6 @@
     <div><slot name="navLogo"></slot></div>
     <div><slot name="navLink"></slot></div>
     <div><slot name="navMenu"></slot></div>
-
   </div>
 </template>
 
