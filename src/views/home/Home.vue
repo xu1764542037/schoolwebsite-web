@@ -1,6 +1,8 @@
 <template>
   <div id="Home">
-    <HomeCarousel/>
+    <HomeCarousel>
+
+    </HomeCarousel>
   </div>
 </template>
 

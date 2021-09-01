@@ -1,8 +1,17 @@
 <template>
   <div id="HomeCarousel">
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3>{{ item }}</h3>
+    <el-carousel indicator-position="outside" height="1000px">
+      <el-carousel-item>
+        <img src="@/assets/img/home/1.png" width="1920px" height="1000px">
+      </el-carousel-item>
+      <el-carousel-item >
+        <img src="@/assets/img/home/2.png" width="1920px" height="1000px">
+      </el-carousel-item>
+      <el-carousel-item>
+        <img src="@/assets/img/home/3.png" width="1920px" height="1000px">
+      </el-carousel-item>
+      <el-carousel-item>
+        <img src="@/assets/img/home/4.png" width="1920px" height="1000px">
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -12,17 +21,17 @@
 <script>
 export default {
 name: "Carousel",
-  data(){
 
-  }
 }
 </script>
 
 <style scoped>
 #HomeCarousel {
+  position: relative;
+  width: 1920px;
+  height: 1000px;
+
 }
-
-
 .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;

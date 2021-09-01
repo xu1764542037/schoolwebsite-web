@@ -17,7 +17,7 @@ export default {
 <style scoped>
 #NavBar {
   position: fixed;
-  background-image: linear-gradient( 180deg,  rgba(0,0,0,1),  rgba(255,255,255,0));
+  background-image: linear-gradient( 180deg,  rgba(0,0,0,.8),  rgba(255,255,255,0));
   width: 100%;
   height: 17%;
 
