@@ -1,19 +1,25 @@
 <template>
   <div id="Home">
-    <HomeCarousel>
+    <div id="Home-HomeCarousel">
+      <HomeCarousel/>
+    </div>
+    <div id="Home-HomeNews">
+      <HomeNews/>
+    </div>
 
-    </HomeCarousel>
+
   </div>
 </template>
 
 <script>
 import HomeCarousel from "./child/HomeCarousel";
-
+import HomeNews from "./child/HomeNews";
 
 export default {
   name: "Home",
   components:{
-    HomeCarousel
+    HomeCarousel,
+    HomeNews
   }
 }
 </script>
@@ -21,6 +27,16 @@ export default {
 <style scoped>
 #Home {
   position: fixed;
+  width: 100%;
+  overflow: auto;
 }
 
+#Home-HomeCarousel {
+  position: absolute;
+}
+
+#Home-HomeNews {
+  margin-top: 70%;
+  position: relative;
+}
 </style>
