@@ -18,6 +18,7 @@ export default {
   width: 28%;
   margin-top: 1.2%;
   margin-left: 68%;
+  cursor: pointer;
 }
 
 

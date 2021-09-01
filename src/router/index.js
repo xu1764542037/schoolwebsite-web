@@ -5,6 +5,9 @@ import VueRouter from 'vue-router'
 //首页
 const Index =() => import("@/components/common/index/Index.vue")
 
+//Home页面
+const Home= () =>import("@/views/home/Home.vue")
+
 //404页面
 const Error =() => import("@/components/common/404/error")
 
@@ -17,6 +20,10 @@ const routes = [
     path: '',
     redirect: '/index'
   },
+  {
+    path: '/home',
+    component: Home
+  }
   // {
   //   path: '/login',
   //   component: Login

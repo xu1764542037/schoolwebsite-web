@@ -19,7 +19,7 @@ export default {
   font-weight: 700;
   line-height: 300%;
   -webkit-transition: .8s all;
-
+  cursor: pointer;
 }
 
 #NavMenuItem:hover {
