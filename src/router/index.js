@@ -23,24 +23,20 @@ const routes = [
   {
     path: '/home',
     component: Home
+  },
+  {
+    path: '/index',
+    redirect: "/home",
+    component: Index
+  },
+  {
+    path: '*',
+    redirect: "/404"
+  },
+  {
+    path: '/404',
+    component: Error
   }
-  // {
-  //   path: '/login',
-  //   component: Login
-  // },
-  // {
-  //   path: '/index',
-  //   redirect: "/index",
-  //   component: Index
-  // },
-  // {
-  //   path: '*',
-  //   redirect: "/404"
-  // },
-  // {
-  //   path: '/404',
-  //   component: Error
-  // }
 ]
 
 //创建router

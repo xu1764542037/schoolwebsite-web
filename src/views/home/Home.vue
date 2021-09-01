@@ -1,5 +1,7 @@
 <template>
-  <HomeCarousel/>
+  <div id="Home">
+    <HomeCarousel/>
+  </div>
 </template>
 
 <script>
@@ -15,5 +17,8 @@ export default {
 </script>
 
 <style scoped>
+#Home {
+  position: fixed;
+}
 
 </style>
