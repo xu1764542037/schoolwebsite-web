@@ -27,8 +27,8 @@ name: "Carousel",
 
 <style scoped>
 #HomeCarousel {
-  position: fixed;
-  width: 100%;
+  position: relative;
+  width: 1920px;
 }
 
 </style>

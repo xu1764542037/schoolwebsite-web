@@ -26,7 +26,9 @@ export default {
 body{
   /*font-family: PingFang-SC-Regular,Helvetica,"Microsoft Yahei","微软雅黑";*/
   font-family: PingFangSC-Regular!important;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

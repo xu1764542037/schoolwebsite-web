@@ -26,9 +26,9 @@ export default {
 
 <style scoped>
 #Home {
-  position: fixed;
+  position: absolute;
   width: 100%;
-  overflow: auto;
+
 }
 
 #Home-HomeCarousel {

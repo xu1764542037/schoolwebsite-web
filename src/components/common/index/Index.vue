@@ -200,7 +200,7 @@ export default {
 
 <style scoped>
 #index {
-  z-index: 1;
+  z-index: 1000;
   position: fixed;
   border: 0;
 
