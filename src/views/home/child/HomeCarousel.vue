@@ -1,9 +1,12 @@
 <template>
-  <el-carousel indicator-position="outside">
-    <el-carousel-item v-for="item in 4" :key="item">
-      <h3>{{ item }}</h3>
-    </el-carousel-item>
-  </el-carousel>
+  <div id="HomeCarousel">
+    <el-carousel indicator-position="outside">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <h3>{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+
 </template>
 
 <script>
@@ -16,6 +19,10 @@ name: "Carousel",
 </script>
 
 <style scoped>
+#HomeCarousel {
+}
+
+
 .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;

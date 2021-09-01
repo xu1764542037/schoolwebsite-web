@@ -26,7 +26,7 @@
         <nav-menu>
           <nav-menu-item>首页</nav-menu-item>
           <nav-menu-item>
-            <div @click="isProfileShow = !isProfileShow">学院概况 ◆</div>
+            <div @click="changeProfileBox">学院概况 ◆</div>
           </nav-menu-item>
           <el-collapse-transition>
             <div v-show="isProfileShow" id="Index-NavMenu-ProfileBox">
@@ -39,7 +39,7 @@
             </div>
           </el-collapse-transition>
           <nav-menu-item>
-            <div @click="isCollegeInfoShow = !isCollegeInfoShow">院系设置 ◆</div>
+            <div @click="changeCollegeInfoBox">院系设置 ◆</div>
           </nav-menu-item>
           <el-collapse-transition>
             <div v-show="isCollegeInfoShow" id="Index-NavMenu-CollegeInfoBox">
@@ -57,7 +57,7 @@
             </div>
           </el-collapse-transition>
           <nav-menu-item>
-            <div @click="isStudyShow = !isStudyShow">教育教学 ◆</div>
+            <div @click="changeStudyBox">教育教学 ◆</div>
           </nav-menu-item>
           <el-collapse-transition>
             <div v-show="isStudyShow" id="Index-NavMenu-StudyBox">
@@ -90,6 +90,7 @@ export default {
         if (this.isProfileShow === true) {
           this.isCollegeInfoShow = false
           this.isStudyShow = false
+          this.ProfileNum = 0
         }
       }
     },
@@ -98,6 +99,7 @@ export default {
         if (this.isCollegeInfoShow === true) {
           this.isProfileShow = false
           this.isStudyShow = false
+          this.CollegeInfoNum = 0
         }
       }
     },
@@ -106,6 +108,7 @@ export default {
         if (this.isStudyShow === true) {
           this.isCollegeInfoShow = false
           this.isProfileShow = false
+          this.StudyNum = 0
         }
       }
     }
@@ -115,7 +118,10 @@ export default {
       isShowSearch: false,
       isProfileShow: false,
       isCollegeInfoShow: false,
-      isStudyShow: false
+      isStudyShow: false,
+      ProfileNum: 0,
+      CollegeInfoNum: 0,
+      StudyNum: 0
     }
   },
   components: {
@@ -129,6 +135,33 @@ export default {
   methods: {
     changeSearchColor() {
       this.isShowSearch = !this.isShowSearch
+    },
+    changeProfileBox() {
+      if (this.ProfileNum === 0) {
+        this.isProfileShow = true
+        this.ProfileNum = 1
+      } else {
+        this.isProfileShow = false
+        this.ProfileNum = 0
+      }
+    },
+    changeCollegeInfoBox() {
+      if (this.CollegeInfoNum === 0) {
+        this.isCollegeInfoShow = true
+        this.CollegeInfoNum = 1
+      } else {
+        this.isCollegeInfoShow = false
+        this.CollegeInfoNum = 0
+      }
+    },
+    changeStudyBox() {
+      if (this.StudyNum === 0) {
+        this.isStudyShow = true
+        this.StudyNum = 1
+      } else {
+        this.isStudyShow = false
+        this.StudyNum = 0
+      }
     },
     closeSel(event){
       const Profile = document.getElementById("Index-NavMenu-ProfileBox");
