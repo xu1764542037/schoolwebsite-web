@@ -28,7 +28,6 @@ export default {
 #Home {
   position: absolute;
   width: 100%;
-
 }
 
 #Home-HomeCarousel {

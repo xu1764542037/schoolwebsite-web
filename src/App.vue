@@ -37,4 +37,21 @@ body{
   user-select: none;
 }
 
+/*滚动条样式*/
+body::-webkit-scrollbar {
+  width: 4px;
+  /*height: 4px;*/
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.2);
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 0;
+  background: rgba(0,0,0,0.1);
+}
+
+
 </style>
