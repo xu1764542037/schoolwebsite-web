@@ -24,7 +24,7 @@
       </div>
       <div slot="navMenu" id="navMenu">
         <nav-menu>
-          <nav-menu-item>首页</nav-menu-item>
+          <nav-menu-item><div  @mousedown="ItemClick12">首页</div></nav-menu-item>
           <nav-menu-item>
             <div @click="changeProfileBox">学院概况 ◆</div>
           </nav-menu-item>
@@ -43,17 +43,17 @@
           </nav-menu-item>
           <el-collapse-transition>
             <div v-show="isCollegeInfoShow" id="Index-NavMenu-CollegeInfoBox">
-              <div class="Index-NavMenu-CollegeInfo">信息工程学院</div>
-              <div class="Index-NavMenu-CollegeInfo">商务学院</div>
-              <div class="Index-NavMenu-CollegeInfo">智能制造学院</div>
-              <div class="Index-NavMenu-CollegeInfo">建筑工程学院</div>
-              <div class="Index-NavMenu-CollegeInfo">设计学院</div>
-              <div class="Index-NavMenu-CollegeInfo">旅游与航空学院</div>
-              <div class="Index-NavMenu-CollegeInfo">环境与能源学院</div>
-              <div class="Index-NavMenu-CollegeInfo">军事体育教学部</div>
-              <div class="Index-NavMenu-CollegeInfo">马克思主义学院</div>
-              <div class="Index-NavMenu-CollegeInfo">继续教育学院</div>
-              <div class="Index-NavMenu-CollegeInfo">本科教育学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick1">信息工程学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick2">商务学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick3">智能制造学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick4">建筑工程学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick5">设计学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick6">旅游与航空学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick7">环境与能源学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick8">军事体育教学部</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick9">马克思主义学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick10">继续教育学院</div>
+              <div class="Index-NavMenu-CollegeInfo" @mousedown="ItemClick11">本科教育学院</div>
             </div>
           </el-collapse-transition>
           <nav-menu-item>
@@ -135,6 +135,42 @@ export default {
     NavMenuItem,
   },
   methods: {
+    ItemClick1(){
+      this.$router.push({path:"/faculty/InformationEngineering"})
+    },
+    ItemClick2(){
+      this.$router.push({path:"/faculty/BusinessAffairs"})
+    },
+    ItemClick3(){
+      this.$router.push({path:"/faculty/Intelligence"})
+    },
+    ItemClick4(){
+      this.$router.push({path:"/faculty/Architectural"})
+    },
+    ItemClick5(){
+      this.$router.push({path:"/faculty/Design"})
+    },
+    ItemClick6(){
+      this.$router.push({path:"/faculty/Travel"})
+    },
+    ItemClick7(){
+      this.$router.push({path:"/faculty/Environment"})
+    },
+    ItemClick8(){
+      this.$router.push({path:"/faculty/Military"})
+    },
+    ItemClick9(){
+      this.$router.push({path:"/faculty/Marx"})
+    },
+    ItemClick10(){
+      this.$router.push({path:"/faculty/Continue"})
+    },
+    ItemClick11(){
+      this.$router.push({path:"/faculty/Design"})
+    },
+    ItemClick12(){
+      this.$router.push({path:"/home"})
+    },
     changeSearchColor() {
       this.isShowSearch = !this.isShowSearch
     },
@@ -244,6 +280,7 @@ export default {
   font-size: 18px;
   color: #999999;
   border-top: 5px solid #BF4DBF;
+  cursor: pointer;
 }
 
 .Index-NavMenu-Profile {
@@ -254,7 +291,6 @@ export default {
   text-align: center;
   line-height: 50px;
   -webkit-transition: 1s all;
-
 }
 
 .Index-NavMenu-Profile:hover {
@@ -270,6 +306,7 @@ export default {
   font-size: 18px;
   color: #999999;
   border-top: 5px solid #BF4DBF;
+  cursor: pointer;
 }
 
 .Index-NavMenu-CollegeInfo {
@@ -280,7 +317,7 @@ export default {
   text-align: center;
   line-height: 50px;
   -webkit-transition: 1s all;
-
+  cursor: pointer;
 }
 
 .Index-NavMenu-CollegeInfo:hover {
@@ -296,6 +333,7 @@ export default {
   font-size: 18px;
   color: #999999;
   border-top: 5px solid #BF4DBF;
+  cursor: pointer;
 }
 
 .Index-NavMenu-Study {
@@ -306,7 +344,7 @@ export default {
   text-align: center;
   line-height: 50px;
   -webkit-transition: 1s all;
-
+  cursor: pointer;
 }
 
 .Index-NavMenu-Study:hover {

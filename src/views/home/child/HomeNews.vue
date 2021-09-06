@@ -30,7 +30,8 @@ export default {
 <style scoped>
   #HomeNews {
     height: 1100px;
-    background-color: rgb(239,235,234);
+    background:url("../../../assets/img/home/HomeNews/3.png") no-repeat;
+    background-size: 100% 100%;
   }
   .HomeNews-Title h1{
     height: 100px;
