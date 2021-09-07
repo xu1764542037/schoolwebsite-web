@@ -1,6 +1,8 @@
 <template>
   <div id="TextBox">
+    <div class="el-icon-document-copy"></div>
 
+    <slot></slot>
   </div>
 </template>
 
@@ -12,8 +14,9 @@ name: "TextBox"
 
 <style scoped>
 #TextBox {
-  width: 100px;
-  height: 100px;
-  background-color: #EE9640;
+  color: #434343;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 30px;
 }
 </style>

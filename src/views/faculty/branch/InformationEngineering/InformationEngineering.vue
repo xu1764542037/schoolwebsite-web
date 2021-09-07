@@ -50,7 +50,106 @@
       </div>
 <!--      专业设置-->
       <div class="InformationEngineering-Major">
-        <TextBox/>
+        <div class="InformationEngineering-Major-Title">
+          专业设置
+        </div>
+        <div class="InformationEngineering-Major-Content">
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            集成电路技术应用
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            计算机网络技术（网络工程方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            应用电子技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            通信工程设计与监理（5G通信基站设计方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            计算机网络技术（5G通信网络方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            通信技术（5G方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            无人机应用技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            电气自动化技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            大数据技术与应用
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            云计算技术与应用
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            机电一体化技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            电子信息工程技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            计算机应用技术
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            移动通信技术（5G通信技术方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            嵌入式技术与应用
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            电子信息工程技术（物联网方向）
+          </TextBox>
+          <TextBox class="InformationEngineering-Major-Content-Item">
+            软件技术
+          </TextBox>
+        </div>
+
+      </div>
+<!--      新闻模块-->
+      <div class="InformationEngineering-News">
+        <div class="InformationEngineering-News-Card">
+          <Card>
+            <div slot="Title">教学动态</div>
+            <div>
+              <ul>
+                <li><a href="#">【信息工程学院】计算机应用教研室、软件教研室召开 2021级人才培养方案专家咨询委员会</a></li>
+                <li><a href="#">【信息工程学院】教师赴企业顶岗报道（十五）</a></li>
+                <li><a href="#">【信息工程学院】自动化教研室开展2020-2021（2）学期教研活动（九）</a></li>
+                <li><a href="#">【信息工程学院】实训教研室开展2020-2021（2）学期教研活动(九）</a></li>
+              </ul>
+            </div>
+          </Card>
+          <Card>
+            <div slot="Title">学团工作</div>
+            <div>
+              <ul>
+                <li><a href="#">【信息工程学院】计算机应用教研室、软件教研室召开 2021级人才培养方案专家咨询委员会</a></li>
+                <li><a href="#">【信息工程学院】教师赴企业顶岗报道（十五）</a></li>
+                <li><a href="#">【信息工程学院】自动化教研室开展2020-2021（2）学期教研活动（九）</a></li>
+                <li><a href="#">【信息工程学院】实训教研室开展2020-2021（2）学期教研活动(九）</a></li>
+              </ul>
+            </div>
+          </Card>
+          <Card>
+            <div slot="Title">党群工作</div>
+            <div>
+              <ul>
+                <li><a href="#">【信息工程学院】计算机应用教研室、软件教研室召开 2021级人才培养方案专家咨询委员会</a></li>
+                <li><a href="#">【信息工程学院】教师赴企业顶岗报道（十五）</a></li>
+                <li><a href="#">【信息工程学院】自动化教研室开展2020-2021（2）学期教研活动（九）</a></li>
+                <li><a href="#">【信息工程学院】实训教研室开展2020-2021（2）学期教研活动(九）</a></li>
+              </ul>
+            </div>
+          </Card>
+        </div>
+
+      </div>
+<!--      页尾-->
+      <div class="InformationEngineering-Footer">
+        <Footer/>
       </div>
     </div>
   </div>
@@ -58,10 +157,14 @@
 
 <script>
 import TextBox from "./child/TextBox";
+import Card from "./child/Card";
+import Footer from "./child/Footer";
 export default {
 name: "InformationEngineering",
-  components:{
-    TextBox
+  components: {
+    TextBox,
+    Card,
+    Footer
   }
 }
 </script>
@@ -132,6 +235,7 @@ name: "InformationEngineering",
 }
 .InformationEngineering-Leader {
   position: absolute;
+  margin-top: 10px;
   height: 1000px;
   width: 1920px;
   background: url("../../../../assets/img/faculty/InformationEngineering/3.jpg") no-repeat;
@@ -175,9 +279,65 @@ name: "InformationEngineering",
 }
 .InformationEngineering-Major {
   position: relative;
-  top: 1000px;
+  top: 1020px;
+  height: 600px;
+  width: 1920px;
+  background-color: rgb(239,235,234);
+
+}
+.InformationEngineering-Major-Title {
+  position: absolute;
+  top: 45px;
+  left: 37%;
+  font-size: 64px;
+  text-align: center;
+  color: #434343;
+  transform: translate(50%,-50%);
+}
+.InformationEngineering-Major-Content {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  width: 1800px;
+  margin: 0 auto;
+  background-color: rgb(239,235,234);
+  transform: translate(-50%)
+}
+.InformationEngineering-Major-Content-Item {
+  flex: 0 0 30%;
+  width: 50px;
+  cursor: pointer;
+}
+.InformationEngineering-Major-Content-Item:hover {
+  box-shadow: 0.5px 0.5px 5px #0e3248;
+  -webkit-transition: 1s all;
+}
+.InformationEngineering-News {
+
+  position: absolute;
+  top: 3110px;
   height: 500px;
   width: 1920px;
-  background-color: #c81623;
+  background-color: rgb(255,255,255);
+}
+.InformationEngineering-News-Card{
+  width: 1800px;
+  position: absolute;
+  left: 50%;
+  display: flex;
+  justify-content: space-between;
+  transform: translate(-50%);
+}
+.InformationEngineering-News-Card li {
+  margin-top: 20px;
+}
+.InformationEngineering-Footer {
+  position: absolute;
+  top: 3670px;
+  width: 1920px;
+  height: 200px;
 }
 </style>
