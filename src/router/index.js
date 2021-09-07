@@ -5,11 +5,17 @@ import VueRouter from 'vue-router'
 //首页
 const Index =() => import("@/components/common/index/Index.vue")
 
+//后台系统首页
+const BackStageIndex =() => import("@/components/common/BackStage/BackStageIndex.vue")
+
 //Home页面
 const Home= () =>import("@/views/home/Home.vue")
 
 //404页面
 const Error =() => import("@/components/common/404/error")
+
+//Login页面
+const Login =() => import("@/components/common/login/Login")
 
 //院系页面
 const Faculty =() => import("@/views/faculty/Faculty")
@@ -59,10 +65,15 @@ const routes = [
     path: '/home',
     component: Home
   },
+  // {
+  //   path: '/index',
+  //   redirect: "/home",
+  //   component: Index
+  // },
   {
     path: '/index',
-    redirect: "/home",
-    component: Index
+    redirect: "/BSIndex",
+    component: BackStageIndex
   },
   {
     path: '*',
@@ -71,6 +82,14 @@ const routes = [
   {
     path: '/404',
     component: Error
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/BSIndex',
+    component: BackStageIndex
   },
   {
     path: '/faculty',

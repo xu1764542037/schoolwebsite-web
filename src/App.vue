@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <index></index>
+    <index v-show="navShow"></index>
     <router-view></router-view>
-    <BackToTop/>
+<!--    <BackToTop/>-->
   </div>
 </template>
 
@@ -10,6 +10,11 @@
 import index from "@/components/common/index/Index"
 export default {
   name: 'App',
+  data() {
+    return {
+      navShow: true,
+    }
+  },
   components: {
     index,
   }
@@ -29,7 +34,7 @@ body{
   font-family: PingFangSC-Regular!important;
   /*overflow: hidden;*/
   overflow-x: hidden;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
