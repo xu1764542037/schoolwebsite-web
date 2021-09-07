@@ -213,9 +213,7 @@ export default {
           this.StudyNum = 0
         }
       }
-
     }
-
   },
   mounted() {
     document.addEventListener('click',e => {
