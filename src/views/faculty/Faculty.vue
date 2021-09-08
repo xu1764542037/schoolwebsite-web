@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BusinessAffairs from "./branch/BusinessAffairs";
+import BusinessAffairs from "./branch/BusinessAffairs/BusinessAffairs";
 import InformationEngineering from "./branch/InformationEngineering/InformationEngineering";
 export default {
   name: "Faculty",

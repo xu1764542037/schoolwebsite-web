@@ -24,7 +24,7 @@ const Faculty =() => import("@/views/faculty/Faculty")
 const InformationEngineering =() => import("@/views/faculty/branch/InformationEngineering/InformationEngineering")
 
 //商务学院页面
-const BusinessAffairs =() => import("@/views/faculty/branch/BusinessAffairs")
+const BusinessAffairs =() => import("@/views/faculty/branch/BusinessAffairs/BusinessAffairs")
 
 //智能制造学院页面
 const Intelligence =() => import("@/views/faculty/branch/Intelligence")
@@ -65,16 +65,16 @@ const routes = [
     path: '/home',
     component: Home
   },
-  // {
-  //   path: '/index',
-  //   redirect: "/home",
-  //   component: Index
-  // },
   {
     path: '/index',
-    redirect: "/BSIndex",
-    component: BackStageIndex
+    redirect: "/home",
+    component: Index
   },
+  // {
+  //   path: '/index',
+  //   redirect: "/BSIndex",
+  //   component: BackStageIndex
+  // },
   {
     path: '*',
     redirect: "/404"
