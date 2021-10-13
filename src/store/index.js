@@ -9,7 +9,27 @@ Vue.use(Vuex)
 
 
 const state = {
-
+  IdCardNumber: '',
+  Code: '',
+  Name: '',
+  Sex: '',
+  Age: '',
+  Tel: '',
+  StudentId: '',
+  Identity: '',
+  CreateTime: '',
+  StudentProfessionId: '',
+  StudentProfessionName: '',
+  StudentBranchId: '',
+  StudentBranchName: '',
+  StudentClassId: '',
+  StudentClassName: '',
+  StudentQQ: '',
+  StudentAddress: '',
+  TeacherId: '',
+  TeacherBranchId: '',
+  TeacherBranchName: '',
+  TeacherSalary: '',
 }
 
 const store = new Vuex.Store({

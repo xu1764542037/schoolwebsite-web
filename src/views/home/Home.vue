@@ -34,6 +34,15 @@ export default {
     HomeSpecial,
     HomeSpecialNews,
     HomeFooter
+  },
+  methods: {
+  },
+  created() {
+    this.$parent.navShow = true
+  },
+  mounted() {
+    this.test()
+
   }
 }
 </script>

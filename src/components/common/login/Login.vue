@@ -8,17 +8,61 @@
     <div id="Login-Box">
       <h1 id="Login-Box-Title">LOGIN</h1>
       <div id="Login-Box-IdAndPwdBox">
-        <input id="Login-Box-Id" type="text" placeholder="学号"></input>
-        <input id="Login-Box-Pwd" type="password" placeholder="密码"></input>
+        <input id="Login-Box-Id" type="text" placeholder="学号" v-model="id"></input>
+        <input id="Login-Box-Pwd" type="password" placeholder="密码" v-model="password"></input>
       </div>
-        <button id="Login-Button">Sign In</button>
+        <button id="Login-Button" @click="login">Sign In</button>
     </div>
   </div>
 </template>
 
 <script>
+import {selectIdAndPwd} from "@/network/Login/login";
+
+
 export default {
   name: "login",
+  data() {
+   return {
+    id: '',
+    password: '',
+    fullscreenLoading: false
+   }
+  },
+  methods: {
+    login() {
+      selectIdAndPwd(this.id,this.password).then( res => {
+        console.log(res);
+        // console.log(res.obj.length);
+        if (res.code === 1 && res.obj.length !== 0) {
+          if (res.obj[0].idcardnumber.code === 1) {
+            this.$store.commit('addStudentInfo',res.obj[0])
+            this.$message({
+              message: '登录成功！' +
+                  '欢迎'+this.$store.state.Name+'同学！',
+              type: 'success'
+            });
+          } else if(res.obj[0].idcardnumber.code === 2) {
+            this.$store.commit('addTeacherInfo',res.obj[0])
+            this.$message({
+              message: '登录成功！' +
+                  '欢迎'+this.$store.state.Name+'老师！',
+              type: 'success'
+            });
+          }
+
+          this.$router.replace({path: "/BSHome"})
+        } else if (res.code === 0) {
+          this.$message.error('账号或密码错误，请重新输入！');
+        } else if (res.code === -1 ) {
+          this.$message({
+            message: '后台系统错误，请联系管理员！',
+            type: 'warning'
+          });
+        }
+      })
+    }
+  },
   beforeCreate() {
     this.$parent.navShow = false
   },
@@ -26,11 +70,13 @@ export default {
 </script>
 
 <style scoped>
+
+
 #Login {
   position: fixed;
   min-height: 100%;
   width: 100%;
-  z-index: 10000;
+  /*z-index: 10000;*/
   background: url("../../../../src/assets/img/login/school.png") no-repeat fixed ;
   overflow: hidden;
 }
@@ -46,7 +92,7 @@ export default {
 #Index-NavLogo-Img-Font {
   position: absolute;
   height: 60px;
-  width: 220px;
+  width: 250px;
   margin-top: 45px;
   margin-left: 180px;
 }
@@ -54,7 +100,7 @@ export default {
 #Index-NavLogo-Img-FontEnglish {
   position: absolute;
   height: 30px;
-  width: 220px;
+  width: 250px;
   margin-top: 95px;
   margin-left: 180px;
 }

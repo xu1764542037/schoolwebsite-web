@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-carousel height="947px" direction="vertical" :autoplay="false"  ref="nop" >
+    <el-carousel height="940px" direction="vertical" :autoplay="false"  ref="nop" >
       <el-carousel-item>
         <slot name="item1"></slot>
       </el-carousel-item>
@@ -22,28 +22,26 @@ export default {
   name: "Carousel",
   data(){
     return{
-
+      i: 0
     }
   },
   mounted(){
     //监听鼠标滚动事件
     window.addEventListener('mousewheel',this.handleScroll);
+
     window.scrollTo(0, 0)
   },
  methods: {
    handleScroll() {
      // 页面滚动距顶部距离
-     a=1
-     var scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
-         document.body.scrollTop
+     var e = e || window.event;
+     if(e.wheelDelta<0){
+       this.$refs.nop.next()
+     }else{
+       this.$refs.nop.prev()
 
-      if (scrollTop <= 0) {
-        this.$refs.nop.prev()
-      } else {
-        this.$refs.nop.next()
-      }
+     }
    },
-
  }
 }
 </script>

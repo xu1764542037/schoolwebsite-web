@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <index v-show="navShow"></index>
+    <back-stage-index v-show="backStageNavShow"></back-stage-index>
     <router-view></router-view>
 <!--    <BackToTop/>-->
   </div>
@@ -8,14 +9,18 @@
 
 <script>
 import index from "@/components/common/index/Index"
+import BackStageIndex from "./components/common/BackStage/BackStageIndex";
+
 export default {
   name: 'App',
   data() {
     return {
       navShow: true,
+      backStageNavShow: true
     }
   },
   components: {
+    BackStageIndex,
     index,
   }
 }

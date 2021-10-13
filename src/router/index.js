@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
+import * as path from "path";
 
 
 //首页
-const Index =() => import("@/components/common/index/Index.vue")
+const Index =() => import("@/components/common/index/Index")
 
-//后台系统首页
-const BackStageIndex =() => import("@/components/common/BackStage/BackStageIndex.vue")
+
 
 //Home页面
 const Home= () =>import("@/views/home/Home.vue")
@@ -52,6 +52,62 @@ const Continue =() => import("@/views/faculty/branch/Continue")
 
 //本科教育学院
 const Undergraduate =() => import("@/views/faculty/branch/Undergraduate")
+
+
+
+
+
+
+
+//后台系统页面
+//后台index页面
+const BackStageIndex =() => import("@/components/common/BackStage/BackStageIndex")
+//后台首页页面
+const BackStageHome =() => import("@/views/BackStagePage/BackStageHome/BackStageHome")
+//后台 管理员-成绩管理页面
+const BSAModifyFraction =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyFraction/BSAModifyFraction")
+//后台 管理员-课程管理-课程分配管理页面
+const BSAMCCourseAllocation =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyCourse/BSAMCCourseAllocation/BSAMCCourseAllocation.vue")
+//后台 管理员-课程管理-课程对应老师页面
+const BSAMCCourseToTeacher =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyCourse/BSAMCCourseToTeacher/BSAMCCourseToTeacher.vue")
+//后台 管理员-班级管理-班级对应老师页面
+const BSAMCClassToTeacher =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyClass/BSAMCClassToTeacher/BSAMCClassToTeacher.vue")
+//后台 管理员-班级管理-班级对应学生页面
+const BSAMCClassToStudent =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyClass/BSAMCClassToStudent/BSAMCClassToStudent.vue")
+//后台 管理员-人员管理-管理员管理页面
+const BSAMUModifyAdmin =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyUser/BSAMUModifyAdmin/BSAMUModifyAdmin.vue")
+//后台 管理员-人员管理-教师管理页面
+const BSAMUModifyTeacher =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyUser/BSAMUModifyTeacher/BSAMUModifyTeacher.vue")
+//后台 管理员-人员管理-学生管理页面
+const BSAMUModifyStudent =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyUser/BSAMUModifyStudent/BSAMUModifyStudent.vue")
+//后台 教师管理-成绩管理页面
+const BSTModifyFraction =() => import("@/views/BackStagePage/BackStageTeacher/BSTModifyFraction/BSTModifyFraction.vue")
+//后台 教师管理-学生管理页面
+const BSTModifyStudent =() => import("@/views/BackStagePage/BackStageTeacher/BSTModifyStudent/BSTModifyStudent.vue")
+//后台 学生管理-信息查询页面
+const BSSFindInfo =() => import("@/views/BackStagePage/BackStageStudent/BSSFindInfo/BSSFindInfo.vue")
+//后台 学生管理-成绩查询页面
+const BSSFindFraction =() => import("@/views/BackStagePage/BackStageStudent/BSSFindFraction/BSSFindFraction.vue")
+//后台 设置页面
+const BackStageSetting =() => import("@/views/BackStagePage/BackStageSetting/BackStageSetting.vue")
+
+
+//一级菜单跳二级菜单文件
+const Admin =() => import("@/views/BackStagePage/BckStageAdmin/BckStageAdmin")
+const Teacher =() => import("@/views/BackStagePage/BackStageTeacher/BackStageTeacher")
+const Student =() => import("@/views/BackStagePage/BackStageStudent/BackStageStudent")
+
+//二级菜单跳三级菜单文件
+const BSAModifyCourse =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyCourse/BSAModifyCourse")
+const BSAModifyClass =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyClass/BSAModifyClass")
+const BSAModifyUser =() => import("@/views/BackStagePage/BckStageAdmin/BSAModifyUser/BSAModifyUser")
+
+
+
+
+
+
+
 //1.安装插件
 Vue.use(VueRouter)
 
@@ -59,22 +115,22 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/index'
+    redirect: '/BSHome'
   },
   {
     path: '/home',
     component: Home
   },
-  {
-    path: '/index',
-    redirect: "/home",
-    component: Index
-  },
   // {
   //   path: '/index',
-  //   redirect: "/BSIndex",
-  //   component: BackStageIndex
+  //   redirect: "/home",
+  //   component: Index
   // },
+  {
+    path: '/index',
+    redirect: "/BSHome",
+    component: BackStageIndex
+  },
   {
     path: '*',
     redirect: "/404"
@@ -89,7 +145,7 @@ const routes = [
   },
   {
     path: '/BSIndex',
-    component: BackStageIndex
+    component: BackStageHome
   },
   {
     path: '/faculty',
@@ -142,7 +198,101 @@ const routes = [
         path: 'Undergraduate',
         component:Undergraduate
       }
+    ]
+  },
+  ,
+  //后台地址
+  {
+    path: "/BSHome",
+    component: BackStageHome
+  },
+  {
+    path: '/BSAdmin',
+    component: Admin,
+    children: [
+      {
+        path: '/BSAdmin/Class',
+        component: BSAModifyClass,
+        children: [
+          {
+            path: '/BSAdmin/Class/ClassToStudent',
+            component: BSAMCClassToStudent
+          },
+          {
+            path: '/BSAdmin/Class/ClassToTeacher',
+            component: BSAMCClassToTeacher
+          },
         ]
+      },
+      {
+        path: '/BSAdmin/Course',
+        component: BSAModifyCourse,
+        children: [
+          {
+            path: '/BSAdmin/Course/CourseAllocation',
+            component: BSAMCCourseAllocation
+          },
+          {
+            path: '/BSAdmin/Course/CourseToTeacher',
+            component: BSAMCCourseToTeacher
+          }
+        ]
+      },
+      {
+        path: '/BSAdmin/user',
+        component: BSAModifyUser,
+        children: [
+          {
+            path: '/BSAdmin/user/ModifyAdmin',
+            component: BSAMUModifyAdmin
+          },
+          {
+            path: '/BSAdmin/user/ModifyStudent',
+            component: BSAMUModifyStudent
+          },
+          {
+            path: '/BSAdmin/user/ModifyTeacher',
+            component: BSAMUModifyTeacher
+          },
+        ]
+      },
+      {
+        path: 'ModifyFraction',
+        component: BSAModifyFraction
+      }
+    ]
+  },
+  {
+    path: '/BSTeacher',
+    component: Teacher,
+    children: [
+      {
+        path: 'ModifyFraction',
+        component: BSTModifyFraction
+      },
+      {
+        path: 'ModifyStudent',
+        component: BSTModifyStudent
+      }
+    ]
+  },
+  {
+    path: '/BSStudent',
+    component: Student,
+    children: [
+      {
+        path: 'FindFraction',
+        component: BSSFindFraction
+      },
+      {
+        path: 'FindInfo',
+        component: BSSFindInfo
+      }
+    ]
+  },
+  {
+    path: '/BSSetting',
+    component: BackStageSetting
   }
 
 ]
@@ -158,5 +308,25 @@ const router = new VueRouter({
 export default router
 
 
-
+// {
+//   path: '/enterprise/statisticManage',
+//       name: 'statisticManage',
+//     component: parentView,
+//     redirect: 'ComStatisticManage',
+//     meta: { title: '统计分析' },
+//   children: [
+//     {
+//       path: '/enterprise/statisticManage/ComStatisticManage',
+//       name: 'ComStatisticManage',
+//       component: () => import('@/views/enterprise/statisticManage/statisticManage'),
+//       meta: { title: '企业信息统计' }
+//     },
+//     {
+//       path: 'statisticEquipmentManage',
+//       name: 'statisticEquipmentManage',
+//       component: () => import('@/views/enterprise/statisticManage/comStatisticManage'),
+//       meta: { title: '特种设备统计' }
+//     }
+//   ]
+// },
 
